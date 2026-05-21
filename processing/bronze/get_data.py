@@ -28,3 +28,4 @@ data = [
 df = spark.createDataFrame(data, schema=schema)
 print(df.show())
 df.printSchema()
+

@@ -8,3 +8,22 @@ wheels/
 
 # Virtual environments
 .venv
+
+# dbt artifacts
+dbt_analysis/target/
+dbt_analysis/logs/
+dbt_analysis/dbt_packages/
+
+# Spark / Hive local artifacts
+dbt_analysis/spark-warehouse/
+dbt_analysis/metastore_db/
+dbt_analysis/derby.log
+
+# optional local noise
+dbt_analysis/.dbt/
+
+# spark input and output data 
+data/**
+
+#logs
+logs/**
