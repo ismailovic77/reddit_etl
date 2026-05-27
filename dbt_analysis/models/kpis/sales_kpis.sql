@@ -6,7 +6,7 @@ SELECT
     SUM(units_sold)  AS total_units_sold,
     SUM(revenue)     AS total_revenue,
     AVG(revenue)     AS avg_revenue
-FROM delta.`/Users/user/Desktop/learning/reddit_etl/data/gold/sales`
+FROM delta.`s3a://spark-data/gold/sales`
 GROUP BY
     month,
     category

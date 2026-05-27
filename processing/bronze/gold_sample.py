@@ -2,8 +2,6 @@ from pyspark.sql import SparkSession
 from pyspark.sql.types import StructType, StructField, StringType, IntegerType, DoubleType
 from delta import configure_spark_with_delta_pip
 
-BASE_PATH = "s3a://spark-data"
-
 spark = (
     SparkSession.builder
     .appName("create_gold_sample")
@@ -35,10 +33,9 @@ schema = StructType([
 
 df = spark.createDataFrame(data, schema)
 
-output_path = f"{BASE_PATH}/gold/sales"
+output_path = "data/gold/sales"
 
 df.write.format("delta").mode("overwrite").save(output_path)
-#df.write.format("parquet").mode("overwrite").save(output_path)
 
 print(f"✅ Gold Delta table written to {output_path}")
 spark.stop()
