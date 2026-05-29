@@ -1,4 +1,8 @@
-{{ config(materialized='table') }}
+{{ config(
+    materialized='table',
+    location_root='s3a://warehouse/gold'
+    ) 
+}}
 
 SELECT
     month,
